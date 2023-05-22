@@ -4,6 +4,9 @@ import image1 from "../img/image1.png";
 import house1 from "../img/house1.png";
 import Hero from "./Hero";
 import Property from "./Property";
+import Nyhedsbrev from "./Nyhedsbrev";
+import Medarbejdere from "./Medarbejdere";
+import Salgsproces from "./Salgsproces";
 
 const Main = () => {
     return (
@@ -118,6 +121,9 @@ const Main = () => {
             </div>
 
             <Property/>
+            <Nyhedsbrev/>
+            <Medarbejdere/>
+            <Salgsproces/>
         </>
     );
 };

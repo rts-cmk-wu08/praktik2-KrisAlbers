@@ -7,7 +7,9 @@ const Nav = () => {
     return (
         <div className="flex justify-center bg-white">
             <nav className="flex   w-9/12 justify-between text-sm p-5 ">
+            <Link className="text-lg" to="/">
                 <img className="h-11" src={logo} alt="min mægler ejendom" />
+                </Link>
                 <ul className="py-2 flex gap-2">
                     <li>
                     <Link className="text-lg" to="/TilSalg"><NavItem title="Boliger til salg" /></Link>
