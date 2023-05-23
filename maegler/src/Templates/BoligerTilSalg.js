@@ -2,27 +2,37 @@ import React from "react";
 import { useState, useEffect } from "react";
 import headerIcon from "../img/headerIcon.png";
 
-
 const TilSalg = () => {
-    
     const [property, setProperty] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
 
+     const [api, setApi] = useState("https://dinmaegler.onrender.com/homes");
+    
+    const selected = (e) => {
+        setApi(`https://dinmaegler.onrender.com/homes?type_eq=${e.target.value}`);
+        console.log(e.target.value);
+    }
+
+     //fetch(`https://dinmaegler.onrender.com/homes?type_eq=Ejerlejlighed`)
+    // fetch(`https://dinmaegler.onrender.com/homes`)
+
     useEffect(() => {
-        fetch(`https://dinmaegler.onrender.com/homes`)
+        fetch(`${api}`)
             .then((response) => response.json())
             //.then((data) => console.log(data))
             .then((data) => setProperty(data))
             .catch(() => setError("Something went wrong"))
             .finally(() => setLoading(false));
-    }, []);
+
+    }, [api]);
+
 
     return loading ? (
         <p>loading...</p>
     ) : (
         <>
-                    <div className="static flex justify-center items-center bg-cblue-900">
+            <div className="static flex justify-center items-center bg-cblue-900">
                 <img
                     className="relative opacity-10"
                     src={headerIcon}
@@ -35,16 +45,46 @@ const TilSalg = () => {
                 </div>
             </div>
 
-            <div className="flex justify-center bg-slate-100 border">
+            <div className="flex justify-center border">
                 <section className="flex flex-col text-center w-9/12 pt-28 pb-20 gap-4 border-b">
-                    <h3 className="text-2xl font-bold">Søg efter dit drømmehus</h3>
-                    <p className="text-lg pb-5">
-                        There 
-                    </p>
-                    <div className="flex flex-wrap justify-center">
+                    <h3 className="text-2xl font-bold">
+                        Søg efter dit drømmehus
+                    </h3>
+                    <div className="flex">
+                        <form className="flex flex-col w-1/3 text-left">
+                            <label>Ejendomstype</label>
+                            <select onChange={selected} name="ejendomstype" id="ejendomstype">
+                                <option value="ejendomstype">
+                                    Ejendomstype
+                                </option>
+                                <option value="Villa">Villa</option>
+                                <option value="Landejendom">Landejendom</option>
+                                <option value="Ejerlejlighed">
+                                    Ejerlejlighed
+                                </option>
+                                <option value="Byhus">Byhus</option>
+                            </select>
+                        </form>
+                        <div className="flex flex-col w-1/3 text-left">
+                            <label>fsgsg</label>
+                            
+                         
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap gap-4">
+
                         {property.map((data) => (
-                            <article className="w-1/2 p-4" key={data.id}>
-                                <img src={data.images[0].url} alt="ejendom" />
+                            <article
+                                className="w-5/12 shadow-xl rounded"
+                                key={data.id}
+                            >
+                                <div className="rounded-t-sm">
+                                    <img
+                                        className="object-cover w-full h-52 rounded-t-sm"
+                                        src={data.images[0].url}
+                                        alt="ejendom"
+                                    />
+                                </div>
                                 <div className="bg-white">
                                     <h3 className="text-2xl p-4 font-bold text-left">
                                         {data.adress1}
@@ -57,20 +97,23 @@ const TilSalg = () => {
                                             {data.type}
                                         </h3>
                                         <p className="text-lg">
-                                            - ejerudgift {data.cost} kr.
+                                            - ejerudgift{" "}
+                                            {data.cost.toLocaleString()} kr.
                                         </p>
                                     </div>
                                 </div>
-                                <div className="bg-white flex justify-between p-4">
-                                        <p className={`bg${data.energylabel} h-7 w-7`}>
-                                            {data.energylabel}
-                                        </p>
+                                <div className="bg-white flex justify-between p-4 rounded-b-sm">
+                                    <p
+                                        className={`bg${data.energylabel} h-7 w-7`}
+                                    >
+                                        {data.energylabel}
+                                    </p>
                                     <p className="text-lg pb-5">
                                         {data.rooms} værelser -{" "}
                                         {data.livingspace}m2
                                     </p>
                                     <h3 className="text-2xl font-bold">
-                                        Kr. {data.price}
+                                        Kr. {data.price.toLocaleString()}
                                     </h3>
                                 </div>
                             </article>
@@ -82,5 +125,4 @@ const TilSalg = () => {
     );
 };
 
- 
 export default TilSalg;
