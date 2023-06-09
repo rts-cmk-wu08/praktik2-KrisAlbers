@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Property = () => {
     const [property, setProperty] = useState();
@@ -62,7 +63,10 @@ const Property = () => {
                             </article>
                         ))}
                         <button className="bg-cblue-900 text-lg font-semibold text-white w-2/12 h-10">
+                        <Link className="text-lg" to="/TilSalg">
+
                             Se alle boliger
+                        </Link>
                         </button>
                     </div>
                 </section>

@@ -64,3 +64,12 @@
 .bgG {
   background-color: #601b02;
 }
+
+.displayOverlay {
+  display: block;
+}
+
+.displayOverlayHide {
+  display: none;
+}
+

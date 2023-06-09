@@ -13,6 +13,9 @@ import Kontakt from "./Templates/Kontakt";
 import TilSalg from "./Templates/BoligerTilSalg";
 import Maeglere from "./Templates/Maeglere";
 import Farvoritter from "./Templates/MineFarvoritter";
+import Ejendom from "./Templates/Bolig";
+import LogIn from "./Templates/LogIn";
+import Opret from "./Templates/Opret";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,6 +24,9 @@ const router = createBrowserRouter(
             <Route path="/Main" element={<Main />} />
             <Route path="/Kontakt" element={<Kontakt />} />
             <Route path="/TilSalg" element={<TilSalg />} />
+            <Route path="/LogIn" element={<LogIn />} />
+            <Route path="/Opret" element={<Opret />} />
+            <Route path="/Bolig/:id" element={<Ejendom />} />
             <Route path="/Maeglere" element={<Maeglere />} />
             <Route path="/Farvoritter" element={<Farvoritter />} />
         </Route>
