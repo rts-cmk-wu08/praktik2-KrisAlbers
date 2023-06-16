@@ -1,12 +1,26 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import headerIcon from "../img/headerIcon.png";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Opret = () => {
+    const [errors, setErrors] = useState();
+    const auth = useAuth();
+    const navigate = useNavigate();
 
-    const auth = useAuth()
+    // let response = fetch("https://dinmaegler.onrender.com/users/me", {
+    //     method: "GET",
+    //     headers: {
+    //         Authorization:
+    //             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjNmZjgzMjYxNjY4M2M4ODNiMDQ5ZiIsImlhdCI6MTYzNTg0NDM2MywiZXhwIjoxNjM4NDM2MzYzfQ.w1VIG08a8IeHgLIEfgToxHIaJiA8tl2txjeQWq8H_gE",
+    //     },
+    // })
+    //     .then((response) => console.log(response))
+    //     .catch((err) => console.error(err));
+
+    // auth.logInUser(response.data, () => navigate("/"));
     return (
         <>
             <div className="static flex justify-center items-center bg-cblue-900 h-80">

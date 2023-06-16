@@ -116,7 +116,7 @@ const Ejendom = () => {
             ></button>
             <div
                 id="myDIV2"
-                className="w-[90%] mt-[160px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white absolute hidden z-40"
+                className="w-[90%] mt-[160px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white absolute hidden h-[500px] z-40"
             >
                 <div id="myDIVslide" className="hidden">
                 <Slide>
@@ -134,7 +134,7 @@ const Ejendom = () => {
 
                     <div id="myDIVfloorplan" className="hidden">
                     <img
-                className="object-contain"
+                className="h-[500px] object-scale-down w-full h-52 rounded-t-sm"
                 src={property.floorplan.url}
                 alt={property.adress1}
             />

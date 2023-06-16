@@ -1,3 +1,18 @@
+# Projektdukimentation Praktik2 Kristine Albers
+
+Email Kristine@mail.com
+Password 123456
+
+Det gik fint med det jeg har lavet men har ikke styr på login, og der gik jeg i stå.
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
